@@ -151,7 +151,7 @@ export default function NetworkGraph({ members, connections, highlightedMemberId
                 if (img) {
                     const isHighlighted = highlightedMemberIds.length === 0 || highlightedMemberIds.includes(node.id);
                     const hasNoEmbed = membersWithoutEmbed.has(node.id);
-                    const baseOpacity = hasNoEmbed ? '0.5' : '1';
+                    const baseOpacity = hasNoEmbed ? '0.25' : '1';
                     if (searchQuery && isHighlighted) {
                         img.style.filter = 'grayscale(0%)';
                         img.style.opacity = baseOpacity;
@@ -222,9 +222,9 @@ export default function NetworkGraph({ members, connections, highlightedMemberId
             img.style.display = 'block';
             img.draggable = false;
             img.style.transition = 'filter 0.3s ease, opacity 0.3s ease';
-            // Apply 50% opacity for members without embed
+            // Apply 25% opacity for members without embed
             if (hasNoEmbed) {
-                img.style.opacity = '0.5';
+                img.style.opacity = '0.25';
             }
 
             const nameLabel = document.createElement('div');
@@ -255,7 +255,7 @@ export default function NetworkGraph({ members, connections, highlightedMemberId
 
             nodeDiv.addEventListener('mouseleave', () => {
                 const isHighlighted = highlightedMemberIds.length === 0 || highlightedMemberIds.includes(node.id);
-                const baseOpacity = hasNoEmbed ? '0.5' : '1';
+                const baseOpacity = hasNoEmbed ? '0.25' : '1';
                 if (searchQuery && isHighlighted) {
                     img.style.filter = 'grayscale(0%)';
                     img.style.opacity = baseOpacity;
